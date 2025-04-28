@@ -1,10 +1,12 @@
 <template>
   <div id="app">
+    <!-- Render main quiz component -->
     <Quiz />
   </div>
 </template>
 
 <script>
+// Import the Quiz component
 import Quiz from './components/Quiz.vue';
 
 export default {
@@ -14,6 +16,3 @@ export default {
 };
 </script>
 
-<style>
-/* You can leave the default styles or add Bootstrap classes */
-</style>
