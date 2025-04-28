@@ -17,34 +17,37 @@ function Question({ question, onAnswer, userAnswer }) {
         <div className="mt-3">
           {question.options.map((option, index) => (
             <button
-              key={index}
-              className={`btn btn-outline-primary m-2 ${
+            key={index}
+            className={`btn btn-outline-primary m-2 ${
                 userAnswer === option ? "active" : ""
-              }`}
-              onClick={() => handleOptionClick(option)}
+            }`}
+            onClick={() => handleOptionClick(option)}
+            disabled={userAnswer !== undefined}   // <-- Add this
             >
-              {option}
+            {option}
             </button>
           ))}
         </div>
       ) : (
         <div className="mt-3">
-          <button
+            <button
             className={`btn btn-outline-success m-2 ${
-              userAnswer === true ? "active" : ""
+                userAnswer === true ? "active" : ""
             }`}
             onClick={() => handleTrueFalseClick(true)}
-          >
+            disabled={userAnswer !== undefined}    // <-- Add this
+            >
             True
-          </button>
-          <button
+            </button>
+            <button
             className={`btn btn-outline-danger m-2 ${
-              userAnswer === false ? "active" : ""
+                userAnswer === false ? "active" : ""
             }`}
             onClick={() => handleTrueFalseClick(false)}
-          >
+            disabled={userAnswer !== undefined}    // <-- Add this
+            >
             False
-          </button>
+            </button>
         </div>
       )}
     </div>
