@@ -23,6 +23,7 @@ function Quiz() {
     setUserAnswers(newAnswers);
   };
 
+  // Move to next question
   const handleNext = () => {
     if (userAnswers[currentQuestionIndex] === null) {
       alert("Please select an answer before continuing.");
@@ -40,6 +41,7 @@ function Quiz() {
     }
   };
 
+  // Move to previous question
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -49,17 +51,20 @@ function Quiz() {
   return (
     <div className="container mt-5">
       <h1 className="text-center">{quizData.title}</h1>
-
+      
+      {/* Show questiosn while quiz is ongoing */}
       {!showResult ? (
         <div>
           <p className="text-center">
             Question {currentQuestionIndex + 1} of {quizData.questions.length}
           </p>
+          {/* Render the current question */}
           <Question
             question={currentQuestion}
             onAnswer={handleAnswer}
             userAnswer={userAnswers[currentQuestionIndex]}
           />
+          {/* Nav buttons */}
           <div className="d-flex justify-content-between mt-3">
             <button
               className="btn btn-secondary"
