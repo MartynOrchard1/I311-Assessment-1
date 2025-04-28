@@ -5,7 +5,9 @@ import Result from "../Result";
 
 function Quiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState([]);
+  const [userAnswers, setUserAnswers] = useState(
+    Array(quizData.questions.length).fill(null)
+  );
   const [showResult, setShowResult] = useState(false);
 
   const currentQuestion = quizData.questions[currentQuestionIndex];
@@ -14,11 +16,22 @@ function Quiz() {
     const newAnswers = [...userAnswers];
     newAnswers[currentQuestionIndex] = answer;
     setUserAnswers(newAnswers);
+  };
+
+  const handleNext = () => {
+    if (userAnswers[currentQuestionIndex] === null) {
+      alert("Please select an answer before continuing.");
+      return;
+    }
 
     if (currentQuestionIndex + 1 < quizData.questions.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      setShowResult(true);
+      if (userAnswers.includes(null)) {
+        alert("Please answer all questions before finishing the quiz.");
+      } else {
+        setShowResult(true);
+      }
     }
   };
 
@@ -49,6 +62,15 @@ function Quiz() {
               disabled={currentQuestionIndex === 0}
             >
               Previous
+            </button>
+
+            <button
+              className="btn btn-primary"
+              onClick={handleNext}
+            >
+              {currentQuestionIndex === quizData.questions.length - 1
+                ? "Finish"
+                : "Next"}
             </button>
           </div>
         </div>
