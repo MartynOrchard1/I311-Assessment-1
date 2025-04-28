@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import quizData from "../data/quizData.json";
-import Question from "../Question";
+import Question from "./Question";
 import Result from "../Result";
 
 function Quiz() {
