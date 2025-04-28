@@ -1,0 +1,77 @@
+{
+    "title": "Web Development Fundamentals Quiz",
+    "questions": [
+      {
+        "id": 1,
+        "type": "multiple-choice",
+        "question": "Which of the following is NOT a JavaScript framework or library?",
+        "options": ["Angular", "Django", "React", "Vue"],
+        "correctAnswer": "Django"
+      },
+      {
+        "id": 2,
+        "type": "true-false",
+        "question": "CSS is used primarily for adding interactivity to web pages.",
+        "correctAnswer": false
+      },
+      {
+        "id": 3,
+        "type": "multiple-choice",
+        "question": "Which HTML tag is used to create a hyperlink?",
+        "options": ["<link>", "<a>", "<href>", "<url>"],
+        "correctAnswer": "<a>"
+      },
+      {
+        "id": 4,
+        "type": "multiple-choice",
+        "question": "Which CSS property is used to change the text color of an element?",
+        "options": ["text-color", "font-color", "color", "foreground-color"],
+        "correctAnswer": "color"
+      },
+      {
+        "id": 5,
+        "type": "true-false",
+        "question": "JavaScript can be used for server-side development.",
+        "correctAnswer": true
+      },
+      {
+        "id": 6,
+        "type": "multiple-choice",
+        "question": "Which of these is a CSS preprocessor?",
+        "options": ["SASS", "jQuery", "TypeScript", "Node.js"],
+        "correctAnswer": "SASS"
+      },
+      {
+        "id": 7,
+        "type": "multiple-choice",
+        "question": "What does API stand for in web development?",
+        "options": [
+          "Application Programming Interface",
+          "Automated Program Interaction",
+          "Application Process Integration",
+          "Advanced Programming Implementation"
+        ],
+        "correctAnswer": "Application Programming Interface"
+      },
+      {
+        "id": 8,
+        "type": "true-false",
+        "question": "React was developed by Google.",
+        "correctAnswer": false
+      },
+      {
+        "id": 9,
+        "type": "multiple-choice",
+        "question": "Which method is used to add an element at the end of an array in JavaScript?",
+        "options": ["push()", "append()", "addToEnd()", "insert()"],
+        "correctAnswer": "push()"
+      },
+      {
+        "id": 10,
+        "type": "multiple-choice",
+        "question": "What does the 'C' stand for in CSS?",
+        "options": ["Computing", "Cascading", "Colorful", "Creative"],
+        "correctAnswer": "Cascading"
+      }
+    ]
+  }
