@@ -4,14 +4,19 @@ import Question from "../Question";
 import Result from "../Result";
 
 function Quiz() {
+  // Check which question the user is on
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  // Store teh user's answers
   const [userAnswers, setUserAnswers] = useState(
     Array(quizData.questions.length).fill(null)
   );
+  // States when to show the result screen
   const [showResult, setShowResult] = useState(false);
 
+  // Question object for the current question
   const currentQuestion = quizData.questions[currentQuestionIndex];
 
+  // Save the user's answer for the currentt question
   const handleAnswer = (answer) => {
     const newAnswers = [...userAnswers];
     newAnswers[currentQuestionIndex] = answer;
