@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     handleAnswer(answer) {
-      this.$set(this.userAnswers, this.currentQuestionIndex, answer);
+      this.userAnswers.splice(this.currentQuestionIndex, 1, answer);
     },
     goPrevious() {
       if (this.currentQuestionIndex > 0) {
