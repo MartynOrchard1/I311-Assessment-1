@@ -84,6 +84,3 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Optional: You can add small custom styles here if needed */
-</style>
