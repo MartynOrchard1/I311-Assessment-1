@@ -1,6 +1,7 @@
 import React from "react";
 
 function Result({ questions, userAnswers }) {
+  // Calculate final score
   const calculateScore = () => {
     let score = 0;
     questions.forEach((question, index) => {
@@ -20,6 +21,7 @@ function Result({ questions, userAnswers }) {
         You scored {score} out of {questions.length}
       </h3>
 
+      {/* Review each question with user's answer and correct answer */}
       <div className="mt-4">
         <h4>Review:</h4>
         {questions.map((question, index) => (
