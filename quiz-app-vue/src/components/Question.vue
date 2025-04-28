@@ -47,7 +47,4 @@
   };
   </script>
   
-  <style scoped>
-  /* Optional: You can add small custom styles if needed */
-  </style>
   
