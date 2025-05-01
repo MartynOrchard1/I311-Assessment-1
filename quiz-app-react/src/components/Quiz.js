@@ -1,38 +1,44 @@
+// Import Statements
 import React, { useState } from "react";
-import quizData from "../data/quizData.json";
-import Question from "./Question";
-import Result from "./Result";
+import quizData from "../data/quizData.json"; // Import quiz question data
+import Question from "./Question"; 
+import Result from "./Result"; 
 
 function Quiz() {
-  // Check which question the user is on
+  // Track which question the user is currently on
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  // Store teh user's answers
+
+  // Store user's answers in an array, initialized to null
   const [userAnswers, setUserAnswers] = useState(
     Array(quizData.questions.length).fill(null)
   );
-  // States when to show the result screen
+
+  // Determine when to show the result screen
   const [showResult, setShowResult] = useState(false);
 
-  // Question object for the current question
+  // Get the current question based on index
   const currentQuestion = quizData.questions[currentQuestionIndex];
 
-  // Save the user's answer for the currentt question
+  // Function to save user's answer for current question
   const handleAnswer = (answer) => {
-    const newAnswers = [...userAnswers];
-    newAnswers[currentQuestionIndex] = answer;
-    setUserAnswers(newAnswers);
+    const newAnswers = [...userAnswers]; // Copy current answers
+    newAnswers[currentQuestionIndex] = answer; // Set answer for current question
+    setUserAnswers(newAnswers); // Update state
   };
 
-  // Move to next question
+  // Go to the next question or show results if at the end
   const handleNext = () => {
+    // Force user to answer before proceeding
     if (userAnswers[currentQuestionIndex] === null) {
       alert("Please select an answer before continuing.");
       return;
     }
 
+    // If not last question, move forward
     if (currentQuestionIndex + 1 < quizData.questions.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
+      // If answers are complete, show result
       if (userAnswers.includes(null)) {
         alert("Please answer all questions before finishing the quiz.");
       } else {
@@ -41,7 +47,7 @@ function Quiz() {
     }
   };
 
-  // Move to previous question
+  // Go to the previous question
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -51,20 +57,22 @@ function Quiz() {
   return (
     <div className="container mt-5">
       <h1 className="text-center">{quizData.title}</h1>
-      
-      {/* Show questiosn while quiz is ongoing */}
+
+      {/* If quiz is still ongoing, show question screen */}
       {!showResult ? (
         <div>
           <p className="text-center">
             Question {currentQuestionIndex + 1} of {quizData.questions.length}
           </p>
+
           {/* Render the current question */}
           <Question
             question={currentQuestion}
             onAnswer={handleAnswer}
             userAnswer={userAnswers[currentQuestionIndex]}
           />
-          {/* Nav buttons */}
+
+          {/* Navigation buttons */}
           <div className="d-flex justify-content-between mt-3">
             <button
               className="btn btn-secondary"
@@ -74,10 +82,7 @@ function Quiz() {
               Previous
             </button>
 
-            <button
-              className="btn btn-primary"
-              onClick={handleNext}
-            >
+            <button className="btn btn-primary" onClick={handleNext}>
               {currentQuestionIndex === quizData.questions.length - 1
                 ? "Finish"
                 : "Next"}
@@ -85,6 +90,7 @@ function Quiz() {
           </div>
         </div>
       ) : (
+        // Show result component if quiz is finished
         <Result questions={quizData.questions} userAnswers={userAnswers} />
       )}
     </div>

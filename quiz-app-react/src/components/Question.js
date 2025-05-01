@@ -1,21 +1,22 @@
-import React from "react";
+import React from "react"; 
 
 function Question({ question, onAnswer, userAnswer }) {
-  // Handle selecting a multiple choice option
+  // For multiple-choice answers
   const handleOptionClick = (option) => {
     onAnswer(option);
   };
 
-  // Handle selecting true/false
+  // For true/false answers
   const handleTrueFalseClick = (value) => {
     onAnswer(value);
   };
 
   return (
     <div className="card p-4">
+      {/* Display the question prompt */}
       <h4>{question.question}</h4>
 
-      {/* Render multiple-choice options */}
+      {/* If it's multiple choice, show options as buttons */}
       {question.type === "multiple-choice" ? (
         <div className="mt-3">
           {question.options.map((option, index) => (
@@ -31,7 +32,7 @@ function Question({ question, onAnswer, userAnswer }) {
           ))}
         </div>
       ) : (
-        // Render true/false buttons
+        // If it's a true/false question, show two buttons
         <div className="mt-3">
           <button
             className={`btn btn-outline-success m-2 ${
